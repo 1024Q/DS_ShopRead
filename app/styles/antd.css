@@ -1,0 +1,890 @@
+/* antd: ordered global styles; component-specific styles belong in CSS Modules. */ /* Business workspace only. Home keeps its existing visual language. */
+.app-shell[data-admin='true'] .app-main {
+  min-width: 0;
+}
+/* .page-content already pads every page; no second inset, so business, accounting and system
+   pages share the same left edge and top spacing. */
+.app-shell[data-admin='true'] :is(.report-export, .reports, .profit, .ledger, .costs, .business-panel) {
+  padding: 0;
+  max-width: none;
+  margin: 0;
+  min-width: 0;
+}
+.app-shell[data-admin='true']
+  :is(
+    .business-heading,
+    .report-export > header,
+    .reports > header,
+    .profit > header,
+    .ledger > header,
+    .costs > header
+  ) {
+  margin-bottom: 20px;
+  gap: 16px;
+  align-items: center;
+}
+.app-shell[data-admin='true'] :is(h1, h2) {
+  font-size: 23px;
+  letter-spacing: -0.4px;
+  line-height: 1.4;
+}
+.app-shell[data-admin='true'] :is(.filter-panel, .task-filters, .filters) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;
+  padding: 16px 18px;
+  margin: 16px 0;
+  background: var(--panel-bg, #fff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-lg);
+}
+.app-shell[data-admin='true'] :is(.filter-panel, .task-filters, .filters) > label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 160px;
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted, #738199);
+}
+.app-shell[data-admin='true'] :is(.filter-panel, .task-filters, .filters) .ant-select {
+  min-width: 160px;
+  width: 100%;
+}
+.app-shell[data-admin='true'] :is(.export-card, .settings-card, .shop-machine-group) {
+  border: 1px solid var(--border, #e2e8f0);
+  background: var(--panel-bg, #fff);
+  box-shadow: none;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+.app-shell[data-admin='true'] .export-layout {
+  grid-template-columns: minmax(300px, 1fr) minmax(400px, 1.7fr);
+  gap: 20px;
+}
+.app-shell[data-admin='true'] .shop-machine-heading {
+  padding: 0 0 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  background: none;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+}
+.app-shell[data-admin='true'] .shop-machine-heading h3 {
+  margin: 0;
+  font-size: 17px;
+}
+.app-shell[data-admin='true'] .shop-machine-heading > button {
+  margin-left: auto;
+}
+.app-shell[data-admin='true'] .shop-card {
+  padding: 18px;
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+.app-shell[data-admin='true'] .shop-health-metrics {
+  padding: 12px 0;
+  margin: 12px 0;
+  border-block: 1px solid var(--border, #edf1f5);
+}
+.app-shell[data-admin='true'] .shop-card-actions {
+  gap: 6px;
+}
+.app-shell[data-admin='true'] .sync-overview {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.app-shell[data-admin='true'] .sync-overview .ant-btn {
+  height: auto;
+  min-width: 145px;
+  min-height: 64px;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+.app-shell[data-admin='true'] .sync-overview .selected {
+  border-color: #3478ed;
+  color: #3478ed;
+  background: #edf4ff;
+}
+.app-shell[data-admin='true'] .sync-overview strong {
+  font-size: 22px;
+}
+.app-shell[data-admin='true'] .settings-jump-nav {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.app-shell[data-admin='true'] .settings-card {
+  margin: 16px 0;
+}
+.app-shell[data-admin='true'] .settings-grid {
+  gap: 18px;
+}
+.app-shell[data-admin='true'] .settings-grid > label {
+  gap: 8px;
+}
+.app-shell[data-admin='true'] .settings-grid .ant-select {
+  width: 100%;
+}
+.app-shell[data-admin='true'] .sticky-save {
+  padding: 12px 18px;
+  box-shadow: 0 4px 16px #17283b0a;
+}
+.admin-table {
+  margin: 20px 0;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-lg);
+  background: var(--panel-bg, #fff);
+  min-width: 0;
+  overflow: hidden;
+}
+.admin-table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 18px;
+}
+.admin-table-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+.admin-table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px 18px;
+  color: var(--muted, #738199);
+  font-size: 12px;
+}
+.admin-selection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px 18px;
+  background: #edf4ff;
+  color: #285da6;
+}
+.admin-column-filter {
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 260px;
+}
+.admin-column-filter > .ant-input {
+  width: 100%;
+}
+.admin-column-setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  gap: 12px;
+  border-bottom: 1px solid #e8edf3;
+}
+.admin-column-setting .ant-input-number {
+  width: 78px;
+}
+.admin-number {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.admin-cell {
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+.admin-picker-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 130px;
+  gap: 8px;
+}
+.admin-picker-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 0;
+}
+.admin-picker-tools > .ant-tag {
+  margin-left: auto;
+}
+.admin-picker-list {
+  height: 300px;
+  overflow: auto;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-md);
+}
+.admin-picker-group {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 10px 12px;
+  background: var(--panel-bg, #f6f8fc);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.admin-picker-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 12px;
+  border-top: 1px solid var(--border, #edf1f5);
+}
+.admin-picker-row.selected {
+  background: #edf4ff;
+}
+.admin-picker-row .ant-checkbox-wrapper {
+  flex: 1;
+}
+.admin-totals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 8px;
+}
+.admin-totals > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.admin-totals span,
+.admin-totals small {
+  color: var(--muted, #738199);
+  font-size: 12px;
+}
+.admin-totals strong {
+  font-size: 17px;
+  font-variant-numeric: tabular-nums;
+}
+.admin-export-job {
+  padding: 18px 0;
+  border-bottom: 1px solid #e8edf3;
+  line-height: 2;
+}
+.admin-help {
+  margin: 14px 0;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-md);
+  background: var(--panel-bg, #fff);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--muted, #738199);
+}
+.admin-help > summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+.admin-help article {
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 12px 0 !important;
+  background: none !important;
+}
+.app-shell[data-admin='true'] .export-retention label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.app-shell[data-admin='true'] .export-retention input {
+  width: 65px;
+}
+.app-shell[data-admin='true'] .queue-card.ant-btn {
+  display: flex;
+  white-space: normal;
+  height: auto;
+  min-height: 100px;
+  text-align: left;
+  justify-content: space-between;
+}
+.app-shell[data-admin='true'] .ant-table-cell-fix-right .ant-btn {
+  margin: 2px 0;
+}
+.app-shell[data-admin='true'] .ant-table-cell-fix-right a {
+  display: inline-block;
+  white-space: normal;
+  line-height: 1.5;
+}
+.app-shell[data-admin='true'] .ant-table-cell-fix-end a {
+  display: inline-block;
+  margin-left: 6px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.app-shell[data-admin='true'] .ant-table-cell-fix-end .ant-space a {
+  margin-left: 0;
+}
+.app-shell[data-admin='true'] .ant-table-wrapper {
+  max-width: 100%;
+  min-width: 0;
+}
+.app-shell[data-admin='true'] .ant-table-wrapper table {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+.app-shell[data-admin='true'] .ant-table-wrapper .ant-table-cell {
+  font-size: 13px;
+  vertical-align: middle;
+}
+.app-shell[data-admin='true'] .ant-table-wrapper .ant-table-thead > tr > th {
+  font-weight: 600;
+}
+.app-shell[data-admin='true'] .selection-storage {
+  font-size: 12px;
+  border: 0;
+  padding: 10px 0;
+  background: none;
+}
+.app-shell[data-admin='true'] .export-actions:has(.batch-delete:disabled),
+.app-shell[data-admin='true'] .selection-storage:has(+ .export-actions .batch-delete:disabled) {
+  display: none;
+}
+.app-shell[data-admin='true'] .ant-btn {
+  white-space: nowrap;
+}
+@media (max-width: 1000px) {
+  .app-shell[data-admin='true'] .export-layout {
+    grid-template-columns: 1fr;
+  }
+  .admin-table-toolbar {
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .app-shell[data-admin='true'] :is(.filter-panel, .task-filters, .filters) > label {
+    width: 100%;
+  }
+  .admin-table-toolbar .ant-space {
+    width: 100%;
+  }
+  .admin-table-footer {
+    align-items: flex-start;
+  }
+} /* Shared Ant business controls and dialogs; home remains outside this scope. */
+.admin-multi-tools {
+  display: flex;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+.admin-dialog .admin-dialog-content {
+  width: auto;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.admin-dialog .dialog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+.admin-dialog h2 {
+  font-size: 20px;
+  margin: 0;
+}
+.admin-dialog h3 {
+  font-size: 16px;
+}
+.admin-dialog .dialog-head p {
+  margin-bottom: 0;
+}
+.admin-dialog .ant-select {
+  min-width: 160px;
+  max-width: 100%;
+}
+.admin-dialog dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border, #e2e8f0);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.admin-dialog dl > div {
+  padding: 14px;
+  background: var(--panel-bg, #fff);
+}
+.admin-dialog dt {
+  color: var(--muted, #738199);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.admin-dialog dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.admin-dialog .source-dialog-body {
+  padding: 0;
+}
+.admin-dialog .source-dialog-body > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.admin-dialog .source-detail-table {
+  width: 100%;
+}
+.admin-dialog .source-detail-table tbody > tr {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.admin-dialog .source-detail-table td {
+  display: block;
+  padding: 14px;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-md);
+  overflow-wrap: anywhere;
+}
+.admin-dialog .source-detail-table small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted, #738199);
+}
+.app-shell[data-admin='true'] .admin-business-table {
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.app-shell[data-admin='true'] .admin-business-table tbody > tr > td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border, #edf1f5);
+  font-size: 13px;
+  vertical-align: middle;
+}
+.app-shell[data-admin='true'] .admin-business-table tbody > tr > td small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted, #738199);
+}
+.app-shell[data-admin='true'] .admin-business-table .source-queue-heading th {
+  padding: 10px 14px;
+  background: var(--shell-soft, #f6f8fc);
+  font-size: 13px;
+  text-align: left;
+}
+.app-shell[data-admin='true'] .admin-business-table table {
+  min-width: 100%;
+  margin: 0;
+}
+.app-shell[data-admin='true'] :is(.activity-quick-filters, .sub-tabs, .workspace-toolbar, .shop-action-group) {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.app-shell[data-admin='true'] .ant-btn[aria-pressed='true'] {
+  color: #3478ed;
+  border-color: #3478ed;
+  background: #edf4ff;
+}
+.app-shell[data-admin='true'] .keyword-filter {
+  flex: 1;
+  min-width: 240px;
+}
+@media (max-width: 640px) {
+  .admin-dialog dl,
+  .admin-dialog .source-detail-table tbody > tr {
+    grid-template-columns: 1fr;
+  }
+}
+.admin-dialog [hidden] {
+  display: none !important;
+}
+.admin-dialog .shop-editor > label,
+.admin-dialog-content > label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0;
+}
+.admin-dialog .ant-btn {
+  margin-right: 6px;
+} /* Column preferences use one sticky rule for both Ant headers and composite business cells. */
+.admin-business-table .custom-table .pinned-column {
+  position: sticky;
+  z-index: 2;
+  background: var(--row-bg, var(--panel-bg, #fff));
+  box-shadow: 1px 0 var(--border, #e2e8f0);
+}
+.admin-business-table .custom-table .action-column {
+  position: sticky;
+  right: 0;
+  z-index: 3;
+  background: var(--row-bg, var(--panel-bg, #fff));
+  box-shadow: -1px 0 var(--border, #e2e8f0);
+}
+.admin-business-table .custom-table th:is(.pinned-column, .action-column) {
+  z-index: 6;
+  background: var(--shell-soft, #f6f8fc);
+}
+.admin-business-table .custom-table [hidden] {
+  display: none !important;
+} /* Keep long dialogs and horizontally scrolling tables usable in small windows. */
+.admin-dialog .dialog-head {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--panel-bg, #fff);
+  padding-top: 4px;
+}
+.admin-dialog .dialog-head > button {
+  flex-shrink: 0;
+}
+.admin-dialog .ant-modal-body {
+  overscroll-behavior: contain;
+}
+.admin-dialog-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.admin-dialog :is(.operator-add, .operator-bulk, .invoice-import-toolbar) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.admin-dialog :is(.ant-input, .ant-select, .ant-input-number) {
+  max-width: 100%;
+}
+.admin-business-table,
+.admin-table {
+  container-type: inline-size;
+}
+@container (max-width:720px) {
+  .custom-table :is(.pinned-column, .action-column) {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    box-shadow: none !important;
+  }
+  .ant-table-cell:is(
+    .ant-table-cell-fix-left,
+    .ant-table-cell-fix-right,
+    .ant-table-cell-fix-start,
+    .ant-table-cell-fix-end
+  ) {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+  }
+  .ant-table-cell::after {
+    box-shadow: none !important;
+  }
+}
+@media (max-width: 600px) {
+  .app-shell[data-admin='true'] :is(.filter-panel, .task-filters, .filters) > label {
+    min-width: 0 !important;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+  .app-shell[data-admin='true'] :is(.filter-panel, .task-filters, .filters) :is(.ant-select, .ant-input) {
+    min-width: 0 !important;
+    max-width: 100%;
+  }
+  .app-shell[data-admin='true'] .admin-table-toolbar > .ant-space {
+    flex-wrap: wrap;
+  }
+  .admin-dialog .operator-bulk > .ant-btn {
+    white-space: normal;
+    height: auto;
+    min-height: 34px;
+  }
+} /* Home keeps its own dashboard palette; shared controls use Ant Design. */
+.overview-dashboard .ant-btn {
+  white-space: normal;
+  height: auto;
+  min-height: 34px;
+}
+.overview-dashboard .ant-btn.ov-text-button {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ov-green);
+}
+.overview-dashboard .ant-card.ov-kpi {
+  padding: 0;
+  text-align: left;
+  border: 1px solid var(--ov-border);
+  min-width: 0;
+}
+.overview-dashboard .ov-kpi .ant-card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+}
+.overview-dashboard .ov-kpi .ant-statistic-content {
+  font-family: Bahnschrift, 'Microsoft YaHei', sans-serif;
+  font-size: 28px;
+  color: var(--content-ink, var(--ov-ink));
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.overview-dashboard .ov-revenue-value .ant-statistic-content {
+  color: inherit;
+  font: inherit;
+}
+.overview-dashboard .ov-revenue-value {
+  color: #fff;
+}
+.overview-dashboard .ov-hour .ant-slider {
+  flex: 1;
+  min-width: 100px;
+  margin-inline: 16px;
+}
+.overview-dashboard .ov-shop-select,
+.overview-dashboard .ov-trend-shop {
+  min-width: 0;
+}
+.overview-dashboard .ov-shop-select .ant-select,
+.overview-dashboard .ov-trend-shop .ant-select {
+  min-width: 180px;
+  max-width: 360px;
+}
+.overview-dashboard .ov-urgent-grid .ant-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  padding: 12px;
+  text-align: left;
+  border-color: #e6d8be;
+  background: #fffaf0;
+}
+.overview-dashboard .ov-urgent-grid .ant-btn > span {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.overview-dashboard .ov-urgent-grid .ant-btn strong {
+  font-size: 26px;
+  color: #ab5d22;
+}
+.overview-dashboard .ov-task-row.ant-btn {
+  width: 100%;
+  justify-content: space-between;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #e9e2d5;
+  box-shadow: none;
+  border-radius: 0;
+}
+.overview-dashboard .ov-attention-link.ant-btn {
+  height: auto;
+  white-space: normal;
+  justify-content: space-between;
+}
+.overview-dashboard .ov-change-notice.ant-btn {
+  width: 100%;
+  justify-content: flex-start;
+  min-height: 62px;
+  text-align: left;
+}
+.overview-dashboard .ant-alert {
+  margin-bottom: 16px;
+}
+.overview-dashboard .admin-business-table {
+  min-width: 0;
+  width: 100%;
+}
+.overview-dashboard .ant-table-cell {
+  font-variant-numeric: tabular-nums;
+}
+.overview-dashboard .ov-store-name {
+  min-width: 180px;
+}
+.overview-dashboard .overview-table-tools {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.overview-dashboard .overview-table-tools > label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.overview-dashboard .ant-btn.module-collapse {
+  margin-left: auto;
+  font-size: 12px;
+  padding: 2px 10px;
+  min-height: 28px;
+}
+.overview-dashboard .arrival-comparison .ant-btn,
+.overview-dashboard .arrival-months .ant-btn,
+.overview-dashboard .new-products-shops .ant-btn {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  white-space: normal;
+}
+.overview-dashboard .arrival-months .ant-btn {
+  padding: 8px 4px;
+  min-width: 0;
+}
+.overview-dashboard .arrival-months .month-bar-track {
+  width: 100%;
+  height: 80px;
+}
+.product-detail-drawer .product-overview {
+  width: 100%;
+  max-width: none;
+}
+.app-shell .overview-dashboard .ov-top-grid {
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.65fr);
+}
+.overview-dashboard .ov-kpi-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.overview-dashboard .ov-kpi .ant-card-body {
+  align-items: stretch;
+  justify-content: flex-start;
+  text-align: left;
+}
+.overview-dashboard .ov-kpi .ant-card-body > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.overview-dashboard .ov-kpi .ant-statistic {
+  margin: 8px 0;
+}
+.overview-dashboard .ov-kpi .ov-kpi-bottom {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 12px;
+}
+.app-shell .overview-dashboard .ov-attention-compact {
+  grid-column: 1/-1;
+}
+.overview-dashboard .ov-attention-compact > .collapsible-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 14px 24px;
+}
+.overview-dashboard .ov-attention-compact > .collapsible-body > .ov-priority-top,
+.overview-dashboard .ov-attention-compact > .collapsible-body > .ov-task-list,
+.overview-dashboard .ov-attention-compact > .collapsible-body > .ov-attention-note {
+  grid-column: 1;
+}
+:root[data-theme] .app-shell .overview-dashboard .ov-attention-compact .ov-trend {
+  grid-column: 2;
+  grid-row: 1/4;
+  border-top: 0;
+  border-left: 1px solid var(--shell-border);
+  padding: 0 0 0 24px;
+}
+.overview-dashboard .ov-trend-shop {
+  white-space: nowrap;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.overview-dashboard .ov-controls {
+  margin-left: auto;
+}
+.overview-dashboard .ov-shop-select {
+  white-space: nowrap;
+}
+.home-refresh-summary .home-core-progress {
+  flex: 1;
+  min-width: 100px;
+  width: auto;
+  margin: 0;
+}
+.home-refresh-summary .ant-select {
+  min-width: 180px;
+  max-width: 100%;
+}
+:root[data-theme='dark'] .overview-dashboard .ov-change-notice.ant-btn {
+  background: var(--soft-bg);
+  border-color: var(--shell-border);
+  color: var(--content-ink);
+}
+:root[data-theme='dark'] .overview-dashboard .ant-card.ov-kpi {
+  border-color: var(--shell-border);
+}
+:root[data-theme='dark'] .overview-dashboard .ov-urgent-grid .ant-btn {
+  background: var(--soft-bg);
+  border-color: var(--shell-border);
+}
+@media (max-width: 1100px) {
+  .app-shell .overview-dashboard .ov-top-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .overview-dashboard .ov-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .overview-dashboard .ov-attention-compact > .collapsible-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  :root[data-theme] .app-shell .overview-dashboard .ov-attention-compact .ov-trend {
+    grid-column: 1;
+    grid-row: auto;
+    border-left: 0;
+    border-top: 1px solid var(--shell-border);
+    padding: 16px 0 0;
+  }
+}
+@media (max-width: 720px) {
+  .app-shell .overview-dashboard .ov-top-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .overview-dashboard .ov-controls > label,
+  .overview-dashboard .ov-chart-controls > label {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .overview-dashboard .ov-controls .ant-select,
+  .overview-dashboard .ov-chart-controls .ant-select {
+    flex: 1;
+    min-width: 120px;
+    max-width: 100%;
+  }
+  .overview-dashboard .ov-heading h2 {
+    font-size: 24px;
+  }
+  .overview-dashboard .ov-chart-controls {
+    flex-wrap: wrap;
+  }
+  .overview-dashboard .ov-kpi .ant-card-body {
+    padding: 14px;
+  }
+  .overview-dashboard .ov-kpi .ant-statistic-content {
+    font-size: 24px;
+  }
+  .overview-dashboard .home-collection-control .ant-select {
+    max-width: 100%;
+  }
+  .overview-dashboard .overview-table-tools,
+  .overview-dashboard .workspace-controls {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+}
+/* Generic text rules such as `.summary span` must not recolor Ant Design button labels. */
+:root[data-theme] .app-shell .ant-btn > span {
+  color: inherit;
+  font-size: inherit;
+}

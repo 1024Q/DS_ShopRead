@@ -1,0 +1,26 @@
+"""Shared business module identifiers, with no browser/runtime imports."""
+
+KINDS = {
+    "orders",
+    "ad_logs",
+    "overview",
+    "products",
+    "tickets",
+    "reviews",
+    "tax",
+    "transactions",
+    "goodsdata",
+    "packages",
+    "invoices",
+    "aftersales",
+    "evidence",
+    "intercepts",
+    "ad_products",
+    "ad_reports",
+    "brands",
+    "quality",
+    "activities",
+    "navigator",
+    "reconciliation_day",
+    "reconciliation_month",
+}

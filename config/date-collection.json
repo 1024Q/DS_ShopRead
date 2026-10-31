@@ -1,0 +1,13 @@
+{
+  "products":{"label":"商品列表","mode":"catalog","dateLabel":"商品创建日期","note":"重新采集当前商品目录，并按创建日期筛选；不还原历史库存或价格。"},
+  "reviews":{"label":"评价管理","mode":"dates","dateLabel":"评价日期"},
+  "tickets":{"label":"工单列表","mode":"dates","dateLabel":"工单创建日期"},
+  "packages":{"label":"包裹中心","mode":"dates","dateLabel":"发货日期"},
+  "aftersales":{"label":"售后工作台","mode":"dates","dateLabel":"售后申请日期"},
+  "evidence":{"label":"商家举证","mode":"dates","dateLabel":"举证请求创建日期"},
+  "intercepts":{"label":"拦截快递","mode":"dates","dateLabel":"订单创建日期"},
+  "invoices":{"label":"订单开票","mode":"dates","dateLabel":"开票申请日期"},
+  "reconciliation_day":{"label":"对账日汇总","mode":"month","dateLabel":"入账月份"},
+  "reconciliation_month":{"label":"对账月汇总","mode":"year","dateLabel":"入账年份"},
+  "tax":{"label":"报税信息","mode":"month","dateLabel":"入账月份"}
+}

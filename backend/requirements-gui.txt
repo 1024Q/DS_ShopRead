@@ -1,0 +1,2 @@
+# Optional desktop runtime; server/collector business dependencies stay unchanged.
+PySide6-Essentials==6.10.2

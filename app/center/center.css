@@ -1,0 +1,194 @@
+.center-page {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 24px;
+  min-height: 90vh;
+  box-sizing: border-box;
+  color: var(--content-ink, #26354a);
+  background: var(--shell-bg, #f5f7fb);
+}
+.center-page h2 {
+  margin: 28px 0 12px;
+}
+.center-page .error {
+  color: #b32929;
+}
+.center-muted {
+  color: var(--shell-muted, #778497);
+}
+.center-page button:where(:not([class*='ant-'])),
+.center-link-button {
+  padding: 9px 14px;
+  border: 1px solid var(--shell-border, #e2e7ef);
+  border-radius: var(--radius-md);
+  background: var(--panel-bg, #fff);
+  color: var(--content-ink, #26354a);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+.center-page button:where(:not([class*='ant-'])).primary {
+  background: var(--accent, #3477e9);
+  border-color: var(--accent, #3477e9);
+  color: #fff;
+}
+.center-page button:where(:not([class*='ant-'])).danger {
+  background: #bd493b;
+  border-color: #bd493b;
+  color: #fff;
+}
+.center-page button:where(:not([class*='ant-'])).danger-text {
+  color: #b44536;
+}
+.center-page input:where(:not([class*='ant-'])),
+.center-page select:where(:not([class*='ant-'])) {
+  padding: 9px 12px;
+  border: 1px solid var(--shell-border, #e2e7ef);
+  border-radius: var(--radius-md);
+  background: var(--panel-bg, #fff);
+  color: var(--content-ink, #26354a);
+  font: inherit;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.center-login,
+.center-job,
+.center-page .node-add {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+}
+.center-login label,
+.center-job label,
+.center-page .node-add label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--shell-muted, #778497);
+  min-width: min(220px, 100%);
+}
+.center-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.center-page .remote-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+.center-page .settings-card {
+  padding: 18px;
+  margin: 0;
+  min-width: 0;
+}
+.center-page .settings-card h3 {
+  font-size: 16px;
+  margin: 0;
+}
+.center-table-wrap {
+  overflow: auto;
+  max-width: 100%;
+}
+.center-scroll {
+  max-height: 480px;
+}
+.center-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel-bg, #fff);
+  font-size: 13px;
+}
+.center-table th:where(:not([class*='ant-'])),
+.center-table td:where(:not([class*='ant-'])) {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--shell-border, #e2e7ef);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.center-table th:where(:not([class*='ant-'])) {
+  background: var(--soft-bg, #f0f4fa);
+  color: var(--shell-muted, #778497);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+.center-jobs {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  display: grid;
+  gap: 6px;
+}
+.center-jobs li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: baseline;
+  padding: 10px 12px;
+  border: 1px solid var(--shell-border, #e2e7ef);
+  border-radius: var(--radius-md);
+  background: var(--panel-bg, #fff);
+}
+.center-jobs small {
+  color: var(--shell-muted, #778497);
+  margin-left: auto;
+}
+.center-detail.dialog {
+  width: min(960px, calc(100vw - 32px));
+  max-height: 85vh;
+  background: var(--panel-bg, #fff);
+  color: var(--content-ink, #26354a);
+}
+.center-detail-row {
+  margin-top: 14px;
+}
+.center-detail-row h4 {
+  margin: 0 0 8px;
+}
+.center-fields {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+}
+.center-fields > div {
+  display: grid;
+  grid-template-columns: minmax(100px, 180px) 1fr;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--shell-border, #e2e7ef);
+}
+.center-fields dt {
+  color: var(--shell-muted, #778497);
+  overflow-wrap: anywhere;
+}
+.center-fields dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.center-raw {
+  margin-top: 16px;
+}
+.center-raw pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  background: var(--soft-bg, #f0f4fa);
+  padding: 12px;
+  border-radius: var(--radius-md);
+}
+@media (max-width: 600px) {
+  .center-page {
+    margin: 0;
+    padding: 16px;
+  }
+  .center-fields > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}

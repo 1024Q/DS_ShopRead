@@ -1,0 +1,99 @@
+:global(.app-shell) .business-status {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--badge-border);
+  background: var(--badge-bg);
+  color: var(--badge-ink);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.tone-green {
+  --badge-bg: #e7f6ed;
+  --badge-ink: #166534;
+  --badge-border: #b9e3c8;
+}
+.tone-teal {
+  --badge-bg: #e2f6f3;
+  --badge-ink: #0f6663;
+  --badge-border: #a6dcd7;
+}
+.tone-blue {
+  --badge-bg: #eaf2ff;
+  --badge-ink: #2455a4;
+  --badge-border: #bfd4f5;
+}
+.tone-purple {
+  --badge-bg: #f1eafb;
+  --badge-ink: #7240a3;
+  --badge-border: #d7c4ee;
+}
+.tone-amber {
+  --badge-bg: #fff7dc;
+  --badge-ink: #855c08;
+  --badge-border: #edda96;
+}
+.tone-orange {
+  --badge-bg: #fff0e2;
+  --badge-ink: #a4450c;
+  --badge-border: #f4caab;
+}
+.tone-red {
+  --badge-bg: #ffeaed;
+  --badge-ink: #b42335;
+  --badge-border: #f1b8c1;
+}
+.tone-gray {
+  --badge-bg: #edf0f4;
+  --badge-ink: #5c6677;
+  --badge-border: #d4dbe5;
+}
+:root[data-theme='dark'] .tone-green {
+  --badge-bg: #193d2d;
+  --badge-ink: #91e4ae;
+  --badge-border: #336a4b;
+}
+:root[data-theme='dark'] .tone-teal {
+  --badge-bg: #173b3a;
+  --badge-ink: #85dcd4;
+  --badge-border: #306966;
+}
+:root[data-theme='dark'] .tone-blue {
+  --badge-bg: #213553;
+  --badge-ink: #a8caff;
+  --badge-border: #3b5c86;
+}
+:root[data-theme='dark'] .tone-purple {
+  --badge-bg: #3b2951;
+  --badge-ink: #d9b8ff;
+  --badge-border: #684981;
+}
+:root[data-theme='dark'] .tone-amber {
+  --badge-bg: #433a20;
+  --badge-ink: #f6da83;
+  --badge-border: #756237;
+}
+:root[data-theme='dark'] .tone-orange {
+  --badge-bg: #4a3020;
+  --badge-ink: #ffc394;
+  --badge-border: #805237;
+}
+:root[data-theme='dark'] .tone-red {
+  --badge-bg: #4c2530;
+  --badge-ink: #ffb4c0;
+  --badge-border: #86404f;
+}
+:root[data-theme='dark'] .tone-gray {
+  --badge-bg: #2c3543;
+  --badge-ink: #c3cddd;
+  --badge-border: #4a586d;
+}
+.pickup-countdown {
+  white-space: nowrap !important;
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,7 @@
+target-version = "py314"
+line-length = 120
+extend-exclude = [".data", ".runtime", "tmp", "dist", "node_modules", ".next*"]
+
+[lint]
+# Correctness checks stay separate from the read-only format check in CI.
+select = ["E9", "F63", "F7", "F82"]

@@ -1,0 +1,1619 @@
+/* base: ordered global styles; component-specific styles belong in CSS Modules. */
+:root {
+  /* Shared design tokens: three corner sizes for controls, small cards and panels. */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  font-family: Arial, 'Microsoft YaHei', sans-serif;
+  color: #17283b;
+  background: #f3f6fa;
+  font-size: 14px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button:where(:not([class*='ant-'])),
+input:where(:not([class*='ant-'])),
+select:where(:not([class*='ant-'])) {
+  font: inherit;
+}
+button:where(:not([class*='ant-'])) {
+  cursor: pointer;
+  border: 1px solid #d6dee8;
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  color: #304258;
+}
+button:hover:where(:not([class*='ant-'])) {
+  background: #eef4fb;
+}
+button:disabled:where(:not([class*='ant-'])) {
+  opacity: 0.45;
+  cursor: default;
+}
+.primary:where(:not([class*='ant-'])) {
+  background: var(--accent, #3478ed);
+  color: white;
+  border-color: var(--accent, #3478ed);
+}
+.primary:hover:where(:not([class*='ant-'])) {
+  background: color-mix(in srgb, var(--accent, #3478ed) 86%, #000);
+}
+main {
+  max-width: 1380px;
+  margin: auto;
+  padding: 32px;
+}
+header,
+.brand,
+.summary,
+.section-head,
+.card-top,
+.actions,
+.dialog-head,
+.input-row:where(:not([class*='ant-'])) {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+header,
+.section-head,
+.card-top,
+.dialog-head {
+  justify-content: space-between;
+}
+h1 {
+  font-size: 25px;
+  margin: 0;
+}
+h2 {
+  font-size: 19px;
+  margin: 0;
+}
+h3 {
+  font-size: 18px;
+  margin: 19px 0 8px;
+}
+p {
+  line-height: 1.6;
+}
+header p {
+  color: #8190a1;
+  margin: 7px 0 0;
+}
+.logo,
+.shop-icon {
+  display: grid;
+  place-items: center;
+  background: #e8f1ff;
+  color: var(--accent, #3478ed);
+  border-radius: var(--radius-lg);
+  width: 46px;
+  height: 46px;
+  font-weight: bold;
+  font-size: 22px;
+}
+.logo {
+  background: var(--accent, #3478ed);
+  color: white;
+}
+.summary {
+  margin: 30px 0;
+  background: white;
+  border: 1px solid #e1e7ee;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  gap: 42px;
+}
+.summary > div:first-child {
+  flex: 1;
+}
+.summary strong {
+  display: block;
+  font-size: 23px;
+}
+.summary > div:first-child strong {
+  font-size: 16px;
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+}
+.summary span,
+.eyebrow {
+  color: #8190a1;
+}
+.section-head {
+  margin-bottom: 18px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: white;
+  border: 1px solid #e1e7ee;
+  border-radius: var(--radius-lg);
+  padding: 22px;
+}
+.status {
+  padding: 6px 10px;
+  background: #f0f3f7;
+  color: #6a7b8c;
+  border-radius: 20px;
+  font-size: 12px;
+}
+.logged_in {
+  color: #14845e;
+  background: #e7f7ef;
+}
+.needs_verification,
+.login_failed {
+  color: #b87614;
+  background: #fff3dd;
+}
+.account {
+  color: #6d7e91;
+  overflow-wrap: anywhere;
+}
+.facts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #728398;
+  font-size: 12px;
+  margin: 20px 0;
+}
+.facts span {
+  background: #f3f6fa;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+}
+.actions {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.actions button:where(:not([class*='ant-'])) {
+  font-size: 13px;
+  padding: 9px 11px;
+}
+.error {
+  color: #b84343;
+  font-size: 13px;
+}
+.notice {
+  padding: 14px 18px;
+  background: #fff1e7;
+  border: 1px solid #ffdbb7;
+  border-radius: var(--radius-md);
+  margin: 18px 0;
+  color: #8b4618;
+  display: flex;
+  justify-content: space-between;
+}
+.notice button:where(:not([class*='ant-'])) {
+  padding: 0 6px;
+  background: transparent;
+  border: none;
+}
+.empty {
+  text-align: center;
+  background: white;
+  border: 1px dashed #d1dce9;
+  border-radius: var(--radius-lg);
+  padding: 70px;
+  color: #788a9d;
+}
+footer {
+  margin: 30px 0;
+  color: #8694a5;
+  font-size: 12px;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #162b46aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 10;
+}
+.dialog {
+  width: 440px;
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  box-shadow: 0 25px 90px #14243733;
+}
+.dialog label {
+  display: block;
+  margin: 20px 0 0;
+  color: #51637a;
+}
+.dialog input:where(:not([class*='ant-'])),
+.dialog select:where(:not([class*='ant-'])),
+.input-row input:where(:not([class*='ant-'])) {
+  width: 100%;
+  margin-top: 9px;
+  border: 1px solid #d5deea;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  outline-color: var(--accent, #3478ed);
+}
+.dialog > .primary:where(:not([class*='ant-'])) {
+  margin-top: 24px;
+  width: 100%;
+}
+.dialog p {
+  color: #728398;
+}
+.viewer {
+  background: white;
+  border-radius: var(--radius-lg);
+  width: min(1200px, 98vw);
+  padding: 20px;
+  max-height: 96vh;
+  overflow: auto;
+}
+.viewer .dialog-head p {
+  margin: 8px 0;
+  color: #77889b;
+}
+.screen {
+  background: #e7edf4;
+  min-height: 260px;
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+.screen img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  touch-action: none;
+  cursor: crosshair;
+}
+.input-row input:where(:not([class*='ant-'])) {
+  margin: 0;
+  flex: 1;
+  min-width: 100px;
+}
+.input-row button:where(:not([class*='ant-'])) {
+  white-space: nowrap;
+}
+@media (max-width: 720px) {
+  main {
+    padding: 18px;
+  }
+  .summary {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .summary > div:first-child {
+    flex-basis: 100%;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .brand p {
+    display: none;
+  }
+  .input-row:where(:not([class*='ant-'])) {
+    flex-wrap: wrap;
+  }
+  .dialog-head {
+    align-items: flex-start;
+  }
+}
+.manage-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #edf0f5;
+}
+.manage-actions button:where(:not([class*='ant-'])) {
+  font-size: 13px;
+}
+.danger-text:where(:not([class*='ant-'])) {
+  color: #bb3a3a;
+}
+.danger:where(:not([class*='ant-'])) {
+  background: #c83c3c;
+  color: white;
+  border-color: #c83c3c;
+}
+.danger:hover:where(:not([class*='ant-'])) {
+  background: #b63030;
+}
+.delete-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+.form-hint,
+.detected-name {
+  font-size: 12px;
+  color: #7a889a;
+}
+.dialog {
+  max-height: 94vh;
+  overflow: auto;
+}
+.browser-choice {
+  display: block;
+  margin-bottom: 16px;
+  color: #728398;
+}
+.browser-choice select:where(:not([class*='ant-'])) {
+  padding: 6px;
+  border: 1px solid #d5deea;
+  border-radius: var(--radius-sm);
+}
+.attention-panel .data-table-wrap:where(:not([class*='ant-'])) {
+  max-height: 330px;
+  overflow: auto;
+}
+.attention-panel .data-table:where(:not([class*='ant-'])) {
+  font-size: 13px;
+}
+.attention-panel .data-table th:where(:not([class*='ant-'])) {
+  position: sticky;
+  top: 0;
+  background: var(--panel-bg, #fff);
+  z-index: 1;
+}
+.attention-panel > .module-heading h3 {
+  font-size: 18px;
+}
+.attention-panel details {
+  margin-top: 12px;
+}
+.attention-panel .data-note {
+  font-size: 13px;
+} /* Keep detailed definitions available without crowding the tables. */
+.context-note {
+  font-size: 12px;
+  color: var(--muted, #718096);
+  margin: 8px 0 12px;
+  line-height: 1.6;
+}
+.context-note > summary {
+  cursor: pointer;
+  width: fit-content;
+}
+.context-note > p {
+  margin: 6px 0;
+  max-width: 1100px;
+} /* Consistent compact workspace controls. */
+.sticky-save {
+  position: sticky;
+  bottom: 12px;
+  z-index: 12;
+  background: var(--panel-bg, #fff);
+  border: 1px solid var(--border, #dce4eb);
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  box-shadow: 0 4px 24px #0001;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.module-loading {
+  padding: 24px;
+  color: var(--muted, #77859b);
+}
+.column-presets {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.tax-subjects {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+}
+.tax-subjects .tax-subject {
+  padding: 14px;
+}
+.tax-subjects h3 {
+  font-size: 16px;
+  margin: 8px 0;
+}
+.tax-subjects p {
+  font-size: 13px;
+  margin: 6px 0;
+}
+.empty-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.frequency-editor {
+  grid-column: 1/-1;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-lg);
+}
+.queue-assignment-lane {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.queue-assignment-lane button:where(:not([class*='ant-'])) {
+  max-width: 100%;
+}
+.main-tabs {
+  display: flex;
+  margin: 30px 0 24px;
+  border-bottom: 1px solid #dce4ed;
+  padding-bottom: 10px;
+  overflow-x: auto;
+}
+.main-tabs button:where(:not([class*='ant-'])) {
+  border: 0;
+  background: transparent;
+  white-space: nowrap;
+  padding: 12px 20px;
+  font-weight: 600;
+}
+.main-tabs .active {
+  background: var(--accent, #3478ed);
+  color: white;
+}
+.business-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin: 10px 0 20px;
+}
+.business-heading p {
+  color: #7a8b9e;
+  margin: 8px 0;
+}
+.refresh-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  white-space: nowrap;
+}
+.refresh-actions label {
+  font-size: 12px;
+  color: #718398;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.filter-panel {
+  background: white;
+  border: 1px solid #e0e7ef;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+.filter-panel > label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: #718197;
+  min-width: 130px;
+}
+.filter-panel input:not([type='checkbox']):where(:not([class*='ant-'])),
+.filter-panel select:where(:not([class*='ant-'])) {
+  border: 1px solid #d4deea;
+  border-radius: var(--radius-sm);
+  height: 38px;
+  padding: 8px 10px;
+  outline-color: var(--accent, #3478ed);
+  color: #273b53;
+  background: white;
+  width: 160px;
+}
+.filter-panel input[type='number']:where(:not([class*='ant-'])) {
+  width: 130px;
+}
+.filter-panel .keyword-filter {
+  flex: 1;
+  min-width: 220px;
+}
+.keyword-filter input:where(:not([class*='ant-'])) {
+  width: 100% !important;
+}
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+}
+.star-filter {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-height: 58px;
+}
+.star-filter legend {
+  font-size: 12px;
+  color: #718197;
+  margin-bottom: 10px;
+}
+.star-filter label {
+  white-space: nowrap;
+}
+.star-filter input:where(:not([class*='ant-'])) {
+  margin: 0 5px 0 0;
+}
+.sync-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 20px 0 12px;
+  color: #7b8b9d;
+  font-size: 12px;
+}
+.source-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.source-chip {
+  background: #eaf2fd;
+  border: 1px solid #dce8f8;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.source-chip strong {
+  color: #284463;
+}
+.source-chip span {
+  color: #4275ad;
+}
+.source-chip small {
+  color: #728399;
+}
+.source-error {
+  background: #fff3e8;
+  border-color: #ffe0c5;
+}
+.source-error span {
+  color: #a7652d;
+}
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+.metric-card {
+  border: 1px solid #e0e7ef;
+  border-radius: var(--radius-lg);
+  background: white;
+  padding: 20px 16px;
+}
+.metric-card span {
+  display: block;
+  color: #7b8ba0;
+  font-size: 12px;
+}
+.metric-card strong {
+  display: block;
+  font-size: 25px;
+  letter-spacing: -0.5px;
+  margin-top: 15px;
+  color: #164f96;
+  overflow-wrap: anywhere;
+}
+.task-metric strong {
+  color: #b97826;
+}
+.data-section-title {
+  font-size: 16px;
+  margin: 24px 0 14px;
+}
+.data-section-title small {
+  font-weight: normal;
+  font-size: 12px;
+  color: #8997a8;
+  margin-left: 10px;
+}
+.data-note {
+  font-size: 12px;
+  color: #8695a7;
+  margin: 20px 0;
+}
+.data-table-wrap:where(:not([class*='ant-'])) {
+  background: white;
+  border: 1px solid #e0e7ef;
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+.data-table:where(:not([class*='ant-'])) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+  line-height: 1.6;
+}
+.data-table th:where(:not([class*='ant-'])) {
+  background: #f8fafc;
+  color: #73849a;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e6ecf2;
+}
+.data-table td:where(:not([class*='ant-'])) {
+  padding: 16px;
+  vertical-align: top;
+  border-bottom: 1px solid #edf1f6;
+}
+.data-table tr:last-child td:where(:not([class*='ant-'])) {
+  border-bottom: 0;
+}
+.data-table td:first-child:where(:not([class*='ant-'])) {
+  min-width: 110px;
+}
+.data-table td small:where(:not([class*='ant-'])) {
+  display: block;
+  color: #7e8da0;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+.data-table strong:where(:not([class*='ant-'])) {
+  font-weight: 500;
+}
+.wide-cell {
+  min-width: 200px;
+  max-width: 310px;
+}
+.date-cell {
+  white-space: nowrap;
+  min-width: 100px;
+  font-size: 12px;
+  color: #7a899b;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.clamp-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-width: 130px;
+  max-width: 280px;
+}
+.rating {
+  white-space: nowrap;
+  color: #258563;
+  font-weight: 600;
+}
+.low-rating {
+  color: #c7772b;
+}
+.unreplied {
+  color: #a77728;
+  white-space: nowrap;
+}
+.table-action:where(:not([class*='ant-'])) {
+  font-size: 12px;
+  color: #1763b5;
+  padding: 6px 10px;
+}
+.table-caption:where(:not([class*='ant-'])) {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 12px;
+  color: #718398;
+  font-size: 12px;
+}
+.table-caption strong:where(:not([class*='ant-'])) {
+  font-weight: 500;
+  color: #2b405a;
+}
+.table-empty:where(:not([class*='ant-'])) {
+  padding: 50px 20px;
+  text-align: center;
+  color: #8998aa;
+  font-size: 13px;
+}
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  align-items: center;
+  margin-top: 16px;
+  color: #79899b;
+  font-size: 12px;
+}
+.pagination select:where(:not([class*='ant-'])) {
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #d4deea;
+  background: white;
+}
+.pagination button:where(:not([class*='ant-'])) {
+  padding: 8px 14px;
+}
+.record-dialog {
+  width: 640px;
+}
+.record-dialog dl > div {
+  grid-template-columns: 90px 1fr;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #edf1f6;
+}
+.record-dialog dt {
+  color: #8997a6;
+}
+.record-dialog dd {
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+.record-dialog h3 {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.record-dialog p {
+  color: #728499;
+}
+.record-dialog > .primary:where(:not([class*='ant-'])) {
+  margin-top: 22px;
+}
+@media (max-width: 1100px) {
+  .metric-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .business-heading {
+    align-items: flex-start;
+  }
+  .refresh-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 720px) {
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .business-heading {
+    flex-direction: column;
+  }
+  .filter-panel > label {
+    min-width: 120px;
+  }
+  .filter-panel input:not([type='checkbox']):where(:not([class*='ant-'])),
+  .filter-panel select:where(:not([class*='ant-'])) {
+    width: 135px;
+  }
+  .sync-summary,
+  .table-caption:where(:not([class*='ant-'])) {
+    flex-direction: column;
+  }
+  .source-chip {
+    width: 100%;
+  }
+  .main-tabs button:where(:not([class*='ant-'])) {
+    padding: 10px 14px;
+  }
+  .metric-card strong {
+    font-size: 23px;
+  }
+}
+.main-tabs {
+  flex-wrap: wrap;
+  overflow-x: visible;
+  gap: 6px;
+}
+.main-tabs button:where(:not([class*='ant-'])) {
+  padding: 10px 14px;
+}
+.main-tabs .attention-nav:not(.active) {
+  color: #b54708;
+  background: #fff4e8;
+}
+.main-tabs .attention-nav:before {
+  content: '●';
+  font-size: 8px;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+.priority-summary {
+  border: 1px solid #ffd2a4;
+  border-left: 4px solid #e68b29;
+  border-radius: var(--radius-md);
+  background: #fff7eb;
+  color: #935012;
+  padding: 13px 16px;
+  font-size: 13px;
+  margin: 16px 0;
+}
+.data-table .priority-row:where(:not([class*='ant-'])) {
+  background: #fff9ee;
+}
+.data-table .priority-2:where(:not([class*='ant-'])) {
+  background: #fff3e8;
+}
+.data-table .priority-3:where(:not([class*='ant-'])) {
+  background: #fff0ee;
+}
+.data-table .priority-row td:first-child:where(:not([class*='ant-'])) {
+  box-shadow: inset 3px 0 #e79b35;
+}
+.data-table .priority-3 td:first-child:where(:not([class*='ant-'])) {
+  box-shadow: inset 4px 0 #d95747;
+}
+.priority-badge {
+  color: #a33d18 !important;
+  background: #ffe2c9 !important;
+  border-color: #f6b786 !important;
+  font-weight: 600;
+}
+.priority-label {
+  color: #b33b28 !important;
+  font-weight: 600;
+}
+.priority-filter {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  color: #9e4e1c !important;
+}
+.identifier-cell {
+  min-width: 175px;
+  overflow-wrap: anywhere;
+}
+.identifier-cell strong {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+.data-table .priority-row:hover:where(:not([class*='ant-'])) {
+  background: #ffead5;
+} /* Shared reading scale for all shop and business pages. */
+.sub-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 22px;
+}
+.finance-summary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 24px;
+}
+.finance-amount {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+:root {
+  font-size: 16px;
+  --text-secondary: #52657c;
+}
+body {
+  line-height: 1.65;
+}
+main {
+  max-width: 1600px;
+  padding: 28px 32px;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 20px;
+}
+button:where(:not([class*='ant-'])) {
+  min-height: 44px;
+  font-size: 16px;
+  padding: 10px 18px;
+}
+input:where(:not([class*='ant-'])),
+select:where(:not([class*='ant-'])) {
+  font-size: 16px;
+}
+input[type='checkbox']:where(:not([class*='ant-'])) {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent, #3478ed);
+  flex-shrink: 0;
+}
+header p,
+.summary span,
+.eyebrow,
+.account,
+.browser-choice,
+.dialog p {
+  color: var(--text-secondary);
+}
+.summary strong {
+  font-size: 28px;
+}
+.summary > div:first-child strong {
+  font-size: 18px;
+}
+.status,
+.facts,
+.form-hint,
+.detected-name,
+footer {
+  font-size: 14px;
+}
+.facts,
+.form-hint,
+.detected-name,
+footer {
+  color: var(--text-secondary);
+}
+.status {
+  display: inline-block;
+  line-height: 1.5;
+}
+.actions button:where(:not([class*='ant-'])),
+.manage-actions button:where(:not([class*='ant-'])) {
+  font-size: 15px;
+  padding: 10px 14px;
+}
+.error {
+  font-size: 15px;
+}
+.dialog {
+  width: min(560px, 100%);
+}
+.dialog-head {
+  gap: 20px;
+}
+.dialog-head button:where(:not([class*='ant-'])) {
+  flex-shrink: 0;
+}
+.main-tabs {
+  gap: 8px;
+  row-gap: 10px;
+  margin: 26px 0;
+}
+.main-tabs button:where(:not([class*='ant-'])) {
+  font-size: 16px;
+  padding: 11px 17px;
+}
+.business-heading p {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+.refresh-actions {
+  flex-wrap: wrap;
+}
+.refresh-actions label {
+  font-size: 15px;
+  color: var(--text-secondary);
+  gap: 8px;
+}
+.filter-panel {
+  gap: 20px;
+  padding: 24px;
+}
+.filter-panel > label {
+  font-size: 15px;
+  color: var(--text-secondary);
+  min-width: 160px;
+  max-width: 100%;
+}
+.filter-panel input:not([type='checkbox']):where(:not([class*='ant-'])),
+.filter-panel select:where(:not([class*='ant-'])) {
+  height: 46px;
+  font-size: 16px;
+  width: 200px;
+  max-width: 100%;
+  padding: 10px 12px;
+}
+.filter-panel input[type='number']:where(:not([class*='ant-'])) {
+  width: 160px;
+}
+.filter-panel .keyword-filter {
+  min-width: 260px;
+}
+.filter-buttons {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.filter-buttons button:where(:not([class*='ant-'])) {
+  min-height: 46px;
+}
+.star-filter {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.star-filter legend {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+.star-filter label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+}
+.priority-filter {
+  min-height: 46px;
+}
+.sync-summary,
+.source-chip,
+.data-note,
+.table-caption:where(:not([class*='ant-'])),
+.pagination {
+  font-size: 14px;
+}
+.sync-summary,
+.data-note,
+.table-caption:where(:not([class*='ant-'])),
+.pagination {
+  color: var(--text-secondary);
+}
+.source-chip {
+  padding: 12px 16px;
+  gap: 12px;
+}
+.source-chip small {
+  color: var(--text-secondary);
+}
+.priority-summary {
+  font-size: 16px;
+  padding: 15px 18px;
+}
+.metric-card {
+  padding: 22px 18px;
+}
+.metric-card span {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+.metric-card strong {
+  font-size: 32px;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+.data-section-title {
+  font-size: 20px;
+}
+.data-section-title small {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.data-table:where(:not([class*='ant-'])) {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.data-table th:where(:not([class*='ant-'])) {
+  font-size: 15px;
+  font-weight: 600;
+  color: #40556e;
+  padding: 16px 18px;
+}
+.data-table td:where(:not([class*='ant-'])) {
+  padding: 18px;
+}
+.data-table td:first-child:where(:not([class*='ant-'])) {
+  min-width: 145px;
+}
+.data-table td small:where(:not([class*='ant-'])) {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.data-table strong:where(:not([class*='ant-'])) {
+  font-weight: 600;
+}
+.wide-cell {
+  min-width: 240px;
+  max-width: 360px;
+}
+.identifier-cell {
+  min-width: 225px;
+}
+.date-cell {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+.table-action:where(:not([class*='ant-'])) {
+  min-height: 40px;
+  font-size: 15px;
+  padding: 7px 14px;
+  white-space: nowrap;
+}
+.table-empty:where(:not([class*='ant-'])) {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+.pagination {
+  flex-wrap: wrap;
+}
+.pagination select:where(:not([class*='ant-'])) {
+  min-height: 44px;
+  font-size: 16px;
+}
+.pagination button:where(:not([class*='ant-'])) {
+  padding: 10px 16px;
+}
+.record-dialog {
+  width: min(800px, 100%);
+}
+.record-dialog dl > div {
+  grid-template-columns: 130px minmax(0, 1fr);
+  padding: 13px 0;
+}
+.record-dialog dt {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+.record-dialog dd {
+  font-size: 16px;
+}
+.record-dialog h3 {
+  font-size: 20px;
+}
+@media (max-width: 1200px) {
+  .metric-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 720px) {
+  main {
+    padding: 20px 16px;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  header {
+    flex-wrap: wrap;
+  }
+  .main-tabs {
+    gap: 6px;
+  }
+  .main-tabs button:where(:not([class*='ant-'])) {
+    padding: 10px 13px;
+  }
+  .filter-panel {
+    padding: 18px;
+    gap: 16px;
+  }
+  .filter-panel > label {
+    flex: 1 1 150px;
+    min-width: 0;
+  }
+  .filter-panel .keyword-filter {
+    flex-basis: 100%;
+    min-width: 0;
+  }
+  .filter-panel input:not([type='checkbox']):where(:not([class*='ant-'])),
+  .filter-panel select:where(:not([class*='ant-'])) {
+    width: 100%;
+  }
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .metric-card strong {
+    font-size: 28px;
+  }
+  .metric-card {
+    padding: 18px 14px;
+  }
+  .refresh-actions {
+    justify-content: flex-start;
+    white-space: normal;
+  }
+  .source-chip {
+    min-width: 0;
+  }
+  .source-chip strong {
+    overflow-wrap: anywhere;
+  }
+  .overlay {
+    padding: 12px;
+  }
+  .dialog {
+    padding: 22px;
+  }
+  .record-dialog dl > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+} /* Monthly reporting and entity information */
+.tax-subjects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.tax-subject {
+  background: #fff;
+  border: 1px solid #d8e2ef;
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.tax-subject-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #31557d;
+}
+.tax-subject h3 {
+  font-size: 21px;
+  margin: 18px 0 12px;
+}
+.tax-subject p {
+  line-height: 1.65;
+  margin: 8px 0;
+}
+.tax-subject summary {
+  cursor: pointer;
+  color: #075fc2;
+  padding: 12px 0;
+}
+.tax-entity-fields {
+  margin: 12px 0;
+}
+.tax-entity-fields > div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e4eaf2;
+}
+.tax-entity-fields dt {
+  color: #4a607b;
+}
+.tax-entity-fields dd {
+  margin: 0;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.tax-formula {
+  background: #eaf3ff;
+  border: 1px solid #c9dffc;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin: 22px 0;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.tax-formula > strong {
+  font-size: 20px;
+  display: block;
+}
+.tax-formula > span {
+  display: block;
+  color: #456589;
+  margin-top: 6px;
+}
+.tax-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.tax-total {
+  border: 2px solid #146be0;
+  background: #f1f7ff;
+}
+.tax-value {
+  font-weight: 700;
+  color: #075fc2;
+}
+@media (max-width: 600px) {
+  .tax-entity-fields > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .tax-metrics {
+    grid-template-columns: 1fr;
+  }
+  .tax-formula > strong {
+    font-size: 18px;
+  }
+}
+.financial-expanded-row > td:where(:not([class*='ant-'])) {
+  background: #f3f7fd;
+  padding: 24px !important;
+}
+.financial-breakdown-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.financial-breakdown-columns section {
+  min-width: 0;
+}
+.financial-breakdown-columns h3 {
+  font-size: 20px;
+  margin: 16px 0;
+}
+.financial-breakdown .data-table:where(:not([class*='ant-'])) {
+  min-width: 0;
+  width: 100%;
+}
+.financial-breakdown .data-table th:where(:not([class*='ant-'])),
+.financial-breakdown .data-table td:where(:not([class*='ant-'])) {
+  padding: 12px 16px;
+}
+.financial-breakdown tfoot {
+  background: #eaf2fe;
+  font-weight: 700;
+}
+@media (max-width: 900px) {
+  .financial-breakdown-columns {
+    grid-template-columns: 1fr;
+  }
+}
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 8px;
+}
+.category-tabs button:where(:not([class*='ant-'])) {
+  border: 0;
+  background: #e9f0f9;
+  color: #28466d;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+}
+.category-tabs button.active:where(:not([class*='ant-'])) {
+  background: #173d6d;
+  color: white;
+}
+.navigation-groups .main-tabs {
+  margin-top: 0;
+  padding: 12px 0 22px;
+}
+.auto-query-note {
+  font-size: 14px;
+  color: #4b6484;
+  align-self: center;
+}
+.difference-notice {
+  padding: 18px;
+  margin: 20px 0;
+  border: 1px solid #db890e;
+  border-radius: var(--radius-lg);
+  background: #fff2d9;
+  color: #864400;
+  line-height: 1.6;
+}
+.tax-difference-row > td:where(:not([class*='ant-'])) {
+  background: #fff3df !important;
+}
+.difference-cell {
+  box-shadow: inset 0 -3px #dd7d00;
+  font-weight: 700;
+  color: #8c4100;
+}
+.difference-badge {
+  display: block;
+  color: #a34900;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.database-comparison {
+  padding: 16px;
+  background: #fff5e5;
+  border: 1px solid #edc486;
+  border-radius: var(--radius-lg);
+  margin: 18px 0;
+}
+.database-comparison .data-table:where(:not([class*='ant-'])) {
+  min-width: 650px;
+}
+.live-log-strip {
+  margin: 32px 0 18px;
+  border: 1px solid #c9d6e8;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+}
+.live-log-strip > summary {
+  cursor: pointer;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+.live-log-strip > summary small {
+  font-size: 14px;
+  color: #56708e;
+  margin-left: 16px;
+}
+.live-log-strip .data-table-wrap:where(:not([class*='ant-'])) {
+  margin: 16px 0;
+}
+.log-table:where(:not([class*='ant-'])) {
+  min-width: 850px;
+}
+.log-table td:last-child:where(:not([class*='ant-'])) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 640px;
+}
+.log-error > td:where(:not([class*='ant-'])) {
+  background: #fff0ef;
+  color: #9c2828;
+}
+.log-warning > td:where(:not([class*='ant-'])) {
+  background: #fff7e9;
+  color: #865400;
+}
+@media (max-width: 600px) {
+  .category-tabs {
+    gap: 8px;
+  }
+  .category-tabs button:where(:not([class*='ant-'])) {
+    padding: 12px;
+    font-size: 16px;
+  }
+  .live-log-strip {
+    padding: 14px;
+  }
+} /* Transaction data retains the dashboard's readable controls and table sizes. */
+.trade-totals {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+.trade-detail-heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 28px 0 16px;
+}
+.trade-detail-heading h3 {
+  margin: 0;
+}
+.trade-detail-heading label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.trade-detail-heading select:where(:not([class*='ant-'])),
+.trade-detail-heading input:where(:not([class*='ant-'])) {
+  min-height: 44px;
+  font-size: 16px;
+  max-width: 100%;
+  border: 1px solid #d5dde5;
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  background: white;
+  color: #243742;
+}
+.trade-detail-heading span {
+  font-size: 14px;
+  color: #647580;
+}
+.trade-detail-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+.trade-detail-metrics small {
+  color: #647580;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.trade-order-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.trade-chart {
+  width: 100%;
+  height: auto;
+  max-height: 290px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 12px;
+}
+.trade-chart text {
+  fill: #627481;
+  font-size: 14px;
+}
+.trade-section {
+  background: #fff;
+  border: 1px solid #dce4eb;
+  border-radius: var(--radius-lg);
+  margin: 18px 0;
+  overflow: hidden;
+}
+.trade-section > summary {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 18px 20px;
+  background: #f4f8f9;
+}
+.trade-section > .trade-detail-heading {
+  padding: 0 20px;
+}
+.trade-section .data-table-wrap:where(:not([class*='ant-'])) {
+  border: 0;
+  border-radius: 0;
+}
+@media (max-width: 600px) {
+  .trade-totals,
+  .trade-detail-metrics,
+  .trade-order-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .trade-detail-heading label {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .trade-detail-heading select:where(:not([class*='ant-'])) {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .trade-chart {
+    padding: 2px;
+  }
+  .trade-detail-metrics .metric-card strong {
+    font-size: 25px;
+  }
+}
+.goods-with-thumbnail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.goods-with-thumbnail > div {
+  min-width: 0;
+}
+.goods-thumbnail {
+  display: block;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  object-fit: contain;
+  border: 1px solid #dce4eb;
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+.goods-thumbnail-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #78858f;
+  background: #f4f7fa;
+}
+.record-dialog .goods-with-thumbnail h3 {
+  margin: 12px 0;
+}
+
+/* Language switcher (admin header, public home, center page). */
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.language-switcher select {
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--border, #d6dde8);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.language-switcher select option {
+  color: #1f2a3c;
+}

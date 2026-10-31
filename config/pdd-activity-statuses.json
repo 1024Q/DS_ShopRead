@@ -1,0 +1,285 @@
+[
+  {
+    "code": 1,
+    "desc": "审核中",
+    "status_code_list": [
+      {
+        "status": 101,
+        "sub_status": null
+      },
+      {
+        "status": 102,
+        "sub_status": null
+      },
+      {
+        "status": 113,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 2,
+    "desc": "审核通过",
+    "status_code_list": [
+      {
+        "status": 103,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 3,
+    "desc": "报名被驳回",
+    "status_code_list": [
+      {
+        "status": 104,
+        "sub_status": null
+      }
+    ],
+    "status_type": 3
+  },
+  {
+    "code": 4,
+    "desc": "营销账户待充值",
+    "status_code_list": [
+      {
+        "status": 108,
+        "sub_status": null
+      }
+    ],
+    "status_type": 1
+  },
+  {
+    "code": 4,
+    "desc": "系统待校验保证金",
+    "status_code_list": [
+      {
+        "status": 150,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 4,
+    "desc": "待缴活动保证金",
+    "status_code_list": [
+      {
+        "status": 105,
+        "sub_status": null
+      }
+    ],
+    "status_type": 1
+  },
+  {
+    "code": 4,
+    "desc": "保证金校验通过",
+    "status_code_list": [
+      {
+        "status": 151,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 5,
+    "desc": "待终审",
+    "status_code_list": [
+      {
+        "status": 106,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 6,
+    "desc": "系统报名/返场待确认",
+    "status_code_list": [
+      {
+        "status": 107,
+        "sub_status": null
+      }
+    ],
+    "status_type": 1
+  },
+  {
+    "code": 7,
+    "desc": "待调整",
+    "status_code_list": [
+      {
+        "status": 201,
+        "sub_status": null
+      }
+    ],
+    "status_type": 1
+  },
+  {
+    "code": 8,
+    "desc": "协商待审核",
+    "status_code_list": [
+      {
+        "status": 202,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 9,
+    "desc": "同意调整待审核",
+    "status_code_list": [
+      {
+        "status": 203,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 10,
+    "desc": "待确认排期",
+    "status_code_list": [
+      {
+        "status": 301,
+        "sub_status": null
+      }
+    ],
+    "status_type": 1
+  },
+  {
+    "code": 13,
+    "desc": "报名成功",
+    "status_code_list": [
+      {
+        "status": 501,
+        "sub_status": null
+      }
+    ],
+    "status_type": 2
+  },
+  {
+    "code": 14,
+    "desc": "推送失败",
+    "status_code_list": [
+      {
+        "status": 502,
+        "sub_status": null
+      }
+    ],
+    "status_type": 3
+  },
+  {
+    "code": 15,
+    "desc": "已取消",
+    "status_code_list": [
+      {
+        "status": 601,
+        "sub_status": null
+      }
+    ],
+    "status_type": 3
+  },
+  {
+    "code": 16,
+    "desc": "降低活动价格",
+    "status_code_list": [
+      {
+        "status": 701,
+        "sub_status": null
+      }
+    ],
+    "status_type": 0
+  },
+  {
+    "code": 17,
+    "desc": "活动下线",
+    "status_code_list": [
+      {
+        "status": 702,
+        "sub_status": null
+      }
+    ],
+    "status_type": 3
+  },
+  {
+    "code": 11,
+    "desc": "已确定具体活动时间",
+    "status_code_list": [
+      {
+        "status": 302,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 12,
+    "desc": "寄样及寄样审核",
+    "status_code_list": [
+      {
+        "status": 401,
+        "sub_status": 101
+      }
+    ],
+    "status_type": 1
+  },
+  {
+    "code": 12,
+    "desc": "待终审",
+    "status_code_list": [
+      {
+        "status": 402,
+        "sub_status": 40201
+      }
+    ],
+    "status_type": 0
+  },
+  {
+    "code": 18,
+    "desc": "推送中",
+    "status_code_list": [
+      {
+        "status": 500,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 20,
+    "desc": "系统审核通过",
+    "status_code_list": [
+      {
+        "status": 112,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 21,
+    "desc": "运营审核通过",
+    "status_code_list": [
+      {
+        "status": 121,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  },
+  {
+    "code": 22,
+    "desc": "商家已确认返场/系统晋升",
+    "status_code_list": [
+      {
+        "status": 171,
+        "sub_status": null
+      }
+    ],
+    "status_type": 4
+  }
+]

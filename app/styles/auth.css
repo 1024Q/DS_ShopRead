@@ -1,0 +1,44 @@
+.account-login {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.account-permissions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0 16px;
+  max-height: 50vh;
+  overflow: auto;
+}
+.session-menu {
+  max-width: 100%;
+}
+.session-menu .ant-space-item {
+  max-width: 100%;
+}
+.account-manager {
+  min-width: 0;
+}
+.account-manager > .ant-table-wrapper {
+  max-width: 100%;
+}
+@media (max-width: 720px) {
+  .app-shell .workspace-header.unified-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-shell .unified-header > .header-actions {
+    grid-column: 1;
+    grid-row: auto;
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+  .app-shell .unified-header > .global-sync-bar {
+    grid-column: 1;
+    grid-row: auto;
+    min-width: 0;
+  }
+}

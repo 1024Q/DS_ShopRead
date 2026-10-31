@@ -1,0 +1,191 @@
+{
+  "pdd": {
+    "name": "拼多多",
+    "businessAdapter": "pdd",
+    "groups": [
+      [
+        "数据中心",
+        [
+          [
+            "overview",
+            "实时概览"
+          ],
+          [
+            "transactions",
+            "交易数据"
+          ],
+          [
+            "goodsdata",
+            "商品数据"
+          ]
+        ]
+      ],
+      [
+        "订单售后",
+        [
+          [
+            "todos",
+            "重点待办"
+          ],
+          [
+            "orders",
+            "订单查询"
+          ],
+          [
+            "aftersales",
+            "售后工作台"
+          ],
+          [
+            "evidence",
+            "商家举证"
+          ],
+          [
+            "tickets",
+            "工单列表"
+          ],
+          [
+            "packages",
+            "包裹中心"
+          ],
+          [
+            "intercepts",
+            "拦截快递"
+          ],
+          [
+            "invoices",
+            "订单开票"
+          ]
+        ]
+      ],
+      [
+        "商品管理",
+        [
+          [
+            "products",
+            "商品列表"
+          ],
+          [
+            "navigator",
+            "商品领航员"
+          ],
+          [
+            "quality",
+            "品质诊断"
+          ],
+          [
+            "brands",
+            "品牌黑标权益"
+          ],
+          [
+            "reviews",
+            "评价管理"
+          ]
+        ]
+      ],
+      [
+        "推广平台",
+        [
+          [
+            "ad_products",
+            "商品推广"
+          ],
+          [
+            "ad_reports",
+            "推广报表"
+          ],
+          [
+            "ad_logs",
+            "操作记录"
+          ]
+        ]
+      ],
+      [
+        "营销活动",
+        [
+          [
+            "activities",
+            "活动报名记录"
+          ]
+        ]
+      ],
+      [
+        "资金报税",
+        [
+          [
+            "reconciliation_day",
+            "账户资金"
+          ],
+          [
+            "tax",
+            "报税信息"
+          ]
+        ]
+      ],
+      [
+        "拼多多工具",
+        [
+          [
+            "report_exports",
+            "报表导出"
+          ],
+          ["report_view", "报表查看"]
+        ]
+      ]
+    ],
+    "exclusiveViews": [
+      "navigator",
+      "quality",
+      "brands",
+      "report_exports",
+      "report_view"
+    ]
+  },
+  "taobao": {
+    "name": "淘宝",
+    "businessAdapter": "taobao",
+    "businessKinds": [
+      "overview",
+      "transactions",
+      "goodsdata",
+      "packages",
+      "aftersales",
+      "invoices",
+      "ad_products",
+      "ad_reports",
+      "tax"
+    ],
+    "groups": []
+  },
+  "jd": {
+    "name": "京东",
+    "businessAdapter": "jd",
+    "businessKinds": ["tax"],
+    "groups": []
+  },
+  "douyin": {
+    "name": "抖店",
+    "businessAdapter": null,
+    "groups": []
+  },
+  "taofactory": {
+    "name": "淘工厂",
+    "businessAdapter": null,
+    "groups": []
+  },
+  "xiaohongshu": {
+    "name": "小红书",
+    "businessAdapter": "xiaohongshu",
+    "businessKinds": ["tax"],
+    "groups": []
+  },
+  "wechat": {
+    "name": "微信小店",
+    "businessAdapter": null,
+    "groups": []
+  },
+  "other": {
+    "name": "其他平台",
+    "businessAdapter": null,
+    "groups": []
+  }
+}

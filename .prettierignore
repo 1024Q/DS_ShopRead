@@ -1,0 +1,9 @@
+node_modules
+.next*
+.data
+.runtime
+.venv
+tmp
+dist
+package-lock.json
+app/i18n/zh-TW.mjs

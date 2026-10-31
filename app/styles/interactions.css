@@ -1,0 +1,791 @@
+/* interactions: ordered global styles; component-specific styles belong in CSS Modules. */
+.table-update-status:where(:not([class*='ant-'])) {
+  min-height: 22px;
+  font-size: 12px;
+  color: var(--shell-muted, #64748b);
+  line-height: 22px;
+}
+.table-update-status:not(:empty):where(:not([class*='ant-']))::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--accent, #3b82f6);
+  animation: table-pulse 1s ease-in-out infinite alternate;
+}
+.virtual-table-viewport:where(:not([class*='ant-'])) {
+  max-height: 560px;
+  max-width: 100%;
+  overflow: auto;
+  position: relative;
+  overscroll-behavior: contain;
+  overflow-anchor: none;
+  scrollbar-gutter: stable;
+}
+.virtual-table-viewport:focus-visible:where(:not([class*='ant-'])) {
+  outline: 2px solid var(--accent, #3b82f6);
+  outline-offset: -2px;
+}
+.virtual-table-viewport .data-table thead th:where(:not([class*='ant-'])) {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--panel-bg, #fff);
+}
+.virtual-table-viewport .data-table thead th.pinned-column:where(:not([class*='ant-'])) {
+  z-index: 6;
+}
+.virtual-table-viewport .data-table .virtual-spacer td:where(:not([class*='ant-'])) {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+.virtual-table-viewport .data-table td:where(:not([class*='ant-'])) {
+  overflow-wrap: anywhere;
+}
+@keyframes table-pulse {
+  to {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .table-update-status:not(:empty):where(:not([class*='ant-']))::before {
+    animation: none;
+  }
+} /* One shared header contains navigation context and synchronization controls. */
+.app-shell .workspace-header.unified-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 5px 22px;
+  padding: 10px 30px 8px;
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  background: var(--panel-bg, #fff);
+  border-bottom: 1px solid var(--shell-border);
+}
+.unified-header > .brand {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+.app-shell .unified-header h1 {
+  font-size: 17px;
+  white-space: nowrap;
+}
+.app-shell .unified-header .brand p {
+  display: none;
+}
+.unified-header > .header-actions {
+  grid-column: 3;
+  grid-row: 1;
+  gap: 12px;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+.app-shell .unified-header .machine-picker select:where(:not([class*='ant-'])) {
+  min-height: 32px;
+  padding: 5px 28px 5px 10px;
+  max-width: 150px;
+  font-size: 12px;
+}
+.unified-header > .business-scope {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+}
+.unified-header .business-scope label {
+  flex-shrink: 0;
+  white-space: nowrap;
+  gap: 8px;
+  width: auto;
+}
+.app-shell .unified-header .business-scope select:where(:not([class*='ant-'])) {
+  min-width: 124px;
+  min-height: 32px;
+  padding: 5px 28px 5px 10px;
+  font-size: 12px;
+}
+.unified-header .business-scope-note {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+.app-shell .unified-header > .global-sync-bar {
+  grid-column: 1/-1;
+  grid-row: 2;
+  position: static;
+  z-index: auto;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  min-height: 32px;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+.unified-header .global-sync-info,
+.unified-header .global-sync-actions {
+  gap: 12px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  min-width: 0;
+  width: auto;
+}
+.unified-header .global-sync-info {
+  font-size: 12px;
+}
+.unified-header .global-sync-info strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.unified-header .global-status-dot {
+  flex-shrink: 0;
+}
+.app-shell .unified-header .global-sync-info button:where(:not([class*='ant-'])),
+.app-shell .unified-header .global-auto-label {
+  min-height: 30px;
+  font-size: 12px;
+}
+/* All header actions share one size; the collect button used the large page-button default. */
+.app-shell .unified-header .global-sync-actions > button:not(.global-auto-label):where(:not([class*='ant-'])) {
+  min-height: 32px;
+  padding: 5px 13px;
+  font-size: 12px;
+}
+@media (min-width: 1500px) {
+  .app-shell .workspace-header.unified-header {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+@media (max-width: 1200px) {
+  .app-shell .workspace-header.unified-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 10px 20px;
+    gap: 6px 14px;
+  }
+  .unified-header > .header-actions {
+    grid-column: 2;
+  }
+  .unified-header > .business-scope {
+    grid-column: 1/-1;
+    grid-row: 2;
+  }
+  .app-shell .unified-header > .global-sync-bar {
+    grid-row: 3;
+  }
+  .app-shell .unified-header:not(:has(> .business-scope)) > .global-sync-bar {
+    grid-row: 2;
+  }
+}
+@media (max-width: 720px) {
+  .app-shell .workspace-header.unified-header {
+    padding: 10px 16px;
+    gap: 8px 10px;
+  }
+  .app-shell .unified-header h1 {
+    font-size: 15px;
+  }
+  .unified-header .machine-picker label {
+    font-size: 11px;
+    gap: 5px;
+  }
+  .app-shell .unified-header .machine-picker select:where(:not([class*='ant-'])) {
+    max-width: 120px;
+  }
+  .unified-header .business-scope-note {
+    font-size: 10px;
+  }
+  .app-shell .unified-header > .global-sync-bar {
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+  .unified-header .global-sync-info {
+    width: 100%;
+    gap: 10px;
+  }
+  .unified-header .global-sync-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .app-shell .unified-header .global-sync-info button:where(:not([class*='ant-'])) {
+    margin-left: auto;
+  }
+} /* Business filters are adjacent; the header keeps only global controls. */
+.app-shell .workspace-header.unified-header {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px 20px;
+  padding: 10px 28px;
+}
+.unified-header > .header-actions {
+  grid-column: 2;
+}
+.platform-filter {
+  min-width: 130px;
+}
+.ov-controls .platform-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--shell-muted);
+}
+.collapsible-body {
+  display: contents;
+}
+.collapsible-body[hidden] {
+  display: none !important;
+}
+.collapsible-section > .module-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 0;
+}
+.collapsible-section > .module-heading > h3 {
+  margin: 0;
+}
+.app-shell .module-collapse {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  border-color: var(--shell-border);
+  background: transparent;
+  color: var(--shell-muted);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+.module-collapse:hover {
+  color: var(--shell-text);
+  background: var(--shell-hover);
+}
+.module-collapse:focus-visible {
+  outline: 2px solid var(--accent, #2877ec);
+  outline-offset: 2px;
+}
+.collapsible-section[data-collapsed='true'] {
+  min-height: 0 !important;
+  height: auto !important;
+  align-self: start;
+}
+.collapsible-section[data-collapsed='true'] > .module-heading {
+  margin-bottom: 0;
+}
+.settings-card > .module-heading {
+  margin-bottom: 16px;
+}
+.settings-save {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+.data-module {
+  margin: 18px 0;
+  min-width: 0;
+}
+.data-module > .module-heading {
+  margin-bottom: 14px;
+}
+.data-module > .module-heading > h3 {
+  font-size: 15px;
+}
+.unified-header .header-shop-count {
+  font-size: 12px;
+  white-space: nowrap;
+}
+@media (min-width: 1500px) {
+  .app-shell .workspace-header.unified-header {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 18px;
+    padding: 12px 28px;
+  }
+  .unified-header > .header-actions {
+    grid-column: 3;
+  }
+  .app-shell .unified-header > .global-sync-bar {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+@media (max-width: 720px) {
+  .app-shell .workspace-header.unified-header {
+    padding: 10px 16px;
+    gap: 8px 10px;
+  }
+  .ov-controls {
+    flex-wrap: wrap;
+  }
+  .collapsible-section > .module-heading {
+    gap: 8px;
+  }
+} /* Keep synchronization controls in the space released by the removed title. */
+@media (min-width: 1100px) {
+  .app-shell .workspace-header.unified-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+  }
+  .app-shell .unified-header > .global-sync-bar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .unified-header > .header-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+.ov-refunds {
+  margin-top: 22px;
+}
+.ov-refund-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+  gap: 16px;
+}
+.ov-refund-grid article {
+  padding: 16px 20px;
+  border: 1px solid var(--shell-border);
+  border-radius: var(--radius-lg);
+  background: var(--shell-bg);
+}
+.ov-refund-heading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+.ov-refund-heading span,
+.ov-refund-values span,
+.ov-refund-values small {
+  font-size: 12px;
+  color: var(--shell-muted);
+}
+.ov-refund-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.ov-refund-values > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.ov-refund-values strong {
+  font-size: 26px;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.overlay.remote-overlay {
+  padding: 12px;
+  z-index: 1600;
+}
+.remote-overlay:fullscreen {
+  background: var(--panel-bg, #fff);
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+.remote-overlay .remote-viewer {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--panel-bg, #fff);
+  color: var(--content-ink, #17283b);
+  padding: 12px;
+  border: 1px solid var(--shell-border, #d6dee8);
+}
+.remote-viewer .dialog-head h2 {
+  font-size: 17px;
+}
+.remote-viewer .dialog-head p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+.remote-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 9px 0;
+  font-size: 12px;
+  color: var(--shell-muted, #64748b);
+  font-variant-numeric: tabular-nums;
+}
+.remote-stream-state {
+  color: var(--accent, #3478ed);
+  font-weight: 600;
+}
+.remote-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+.app-shell .remote-toolbar select:where(:not([class*='ant-'])) {
+  font-size: 12px;
+  padding: 5px 26px 5px 9px;
+  min-height: 30px;
+  min-width: 85px;
+}
+.remote-toolbar small {
+  font-size: 11px;
+}
+.remote-viewer .remote-screen {
+  display: block;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  background: var(--soft-bg, #e7edf4);
+  overflow: auto;
+  border: 1px solid var(--shell-border, #d6dee8);
+  border-radius: var(--radius-md);
+  margin: 6px 0 10px;
+}
+.remote-canvas-stage {
+  display: grid;
+  place-items: center;
+  min-width: 100%;
+  min-height: 100%;
+  width: max-content;
+  height: max-content;
+}
+.remote-screen canvas {
+  max-width: none;
+  max-height: none;
+  touch-action: none;
+  cursor: default;
+  outline: none;
+}
+.remote-screen canvas:focus-visible {
+  outline: 2px solid var(--accent, #3478ed);
+  outline-offset: -2px;
+}
+.remote-display-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.remote-display-tools button:where(:not([class*='ant-'])) {
+  font-size: 12px;
+  padding: 5px 9px;
+  min-height: 30px;
+}
+.remote-display-tools button[aria-pressed='true']:where(:not([class*='ant-'])) {
+  background: var(--accent, #3478ed);
+  color: white;
+}
+.remote-display-tools span {
+  min-width: 42px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.remote-viewer .input-row:where(:not([class*='ant-'])) {
+  gap: 8px;
+}
+.remote-viewer .input-row input:where(:not([class*='ant-'])),
+.remote-viewer .input-row button:where(:not([class*='ant-'])) {
+  font-size: 13px;
+  padding: 8px 10px;
+  min-height: 34px;
+}
+.remote-viewer .error {
+  font-size: 12px;
+  margin: 5px 0;
+}
+@media (max-width: 900px) {
+  .remote-toolbar label {
+    margin-left: 0;
+  }
+  .remote-toolbar small {
+    flex-basis: 100%;
+  }
+  .remote-viewer .input-row:where(:not([class*='ant-'])) {
+    flex-wrap: wrap;
+  }
+  .remote-viewer .input-row input:where(:not([class*='ant-'])) {
+    flex-basis: 100%;
+  }
+}
+.remote-quality-auto {
+  color: #b26a00;
+  font-weight: 600;
+}
+.remote-keyboard-hint {
+  font-size: 12px;
+  color: var(--shell-muted, #64748b);
+  margin: 0 0 8px;
+}
+.remote-keyboard-hint kbd {
+  font: inherit;
+  font-size: 11px;
+  padding: 0 5px;
+  border: 1px solid var(--shell-border, #d6dee8);
+  border-radius: var(--radius-sm);
+  background: var(--soft-bg, #f0f4fa);
+}
+.app-shell .data-table tbody tr.attention-row > td:where(:not([class*='ant-'])) {
+  background: #fff1f2;
+  color: #b42335;
+  border-bottom-color: #fecdd3;
+}
+.app-shell .data-table tbody tr.attention-row:hover > td:where(:not([class*='ant-'])) {
+  background: #ffe4e8;
+}
+.app-shell .data-table tbody tr.attention-row > td:first-child:where(:not([class*='ant-'])) {
+  box-shadow: inset 3px 0 #e5485c;
+}
+.app-shell .data-table tbody tr.attention-row small:where(:not([class*='ant-'])),
+.app-shell .data-table tbody tr.attention-row .priority-label:where(:not([class*='ant-'])) {
+  color: #b42335 !important;
+}
+.app-shell .data-table tbody tr.attention-row .priority-badge:where(:not([class*='ant-'])) {
+  background: #ffe0e5 !important;
+  color: #a8192d !important;
+  border-color: #f5a9b5 !important;
+}
+:root[data-theme='dark'] .app-shell .data-table tbody tr.attention-row > td:where(:not([class*='ant-'])) {
+  background: #372029 !important;
+  color: #ffb4c0;
+  border-bottom-color: #673140;
+}
+:root[data-theme='dark'] .app-shell .data-table tbody tr.attention-row:hover > td:where(:not([class*='ant-'])) {
+  background: #472630 !important;
+}
+:root[data-theme='dark'] .app-shell .data-table tbody tr.attention-row small:where(:not([class*='ant-'])),
+:root[data-theme='dark'] .app-shell .data-table tbody tr.attention-row .priority-label:where(:not([class*='ant-'])) {
+  color: #ffb4c0 !important;
+}
+:root[data-theme='dark'] .app-shell .data-table tbody tr.attention-row .priority-badge:where(:not([class*='ant-'])) {
+  background: #592431 !important;
+  color: #ffc3cc !important;
+  border-color: #854253 !important;
+} /* Shared table density. Dialog detail views retain their full-size content. */
+.app-shell .data-table th:where(:not([class*='ant-'])) {
+  padding: 8px 10px;
+  line-height: 1.35;
+}
+.app-shell .data-table td:where(:not([class*='ant-'])) {
+  padding: 7px 10px;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+.app-shell .data-table td small:where(:not([class*='ant-'])) {
+  margin-top: 1px;
+  line-height: 1.35;
+}
+.app-shell .data-table .goods-thumbnail:where(:not([class*='ant-'])) {
+  width: 40px;
+  height: 40px;
+  flex-basis: 40px;
+  font-size: 10px;
+}
+.app-shell .data-table .thumbnail-button:where(:not([class*='ant-'])) {
+  min-width: 40px;
+  min-height: 40px;
+  align-self: flex-start;
+}
+.app-shell .data-table .goods-with-thumbnail:where(:not([class*='ant-'])) {
+  gap: 8px;
+  align-items: flex-start;
+  position: relative;
+}
+.app-shell .data-table .goods-with-thumbnail > div:where(:not([class*='ant-'])) {
+  flex: 1;
+  min-width: 0;
+  padding-right: 27px;
+  position: relative;
+}
+.app-shell .data-table .goods-with-thumbnail strong:where(:not([class*='ant-'])) {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.35;
+  max-width: 360px;
+}
+.app-shell .data-table .goods-with-thumbnail small:where(:not([class*='ant-'])) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 340px;
+}
+.app-shell .data-table .product-overview-link:where(:not([class*='ant-'])) {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0;
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  padding: 2px;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+.app-shell .data-table .product-overview-link:where(:not([class*='ant-']))::after {
+  content: '↗';
+  font-size: 15px;
+}
+.app-shell .data-table .clamp-text:where(:not([class*='ant-'])) {
+  -webkit-line-clamp: 2;
+  line-height: 1.4;
+  max-width: 360px;
+}
+.app-shell .data-table .table-action:where(:not([class*='ant-'])) {
+  min-height: 26px;
+  padding: 2px 7px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.app-shell .data-table .status:where(:not([class*='ant-'])),
+.app-shell .data-table .rating:where(:not([class*='ant-'])) {
+  padding: 2px 6px;
+  line-height: 1.35;
+}
+.date-collection-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.date-collection-control > small {
+  font-size: 12px;
+  color: var(--shell-muted);
+}
+.date-collection-dialog {
+  width: min(620px, 94vw);
+}
+.date-collection-dialog .filter-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 12px;
+  gap: 14px;
+}
+.date-collection-dialog .filter-panel label {
+  min-width: 0;
+}
+.date-collection-dialog .filter-panel :is(input, select):where(:not([class*='ant-'])) {
+  width: 100%;
+  min-width: 0;
+}
+.date-collection-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+@media (max-width: 600px) {
+  .date-collection-dialog .filter-panel {
+    grid-template-columns: 1fr;
+  }
+  .app-shell .data-table td:where(:not([class*='ant-'])) {
+    padding: 6px 8px;
+  }
+} /* Keep product summaries on one line; full text remains in tooltips and details. */
+:root[data-theme] .app-shell .data-table .goods-with-thumbnail:where(:not([class*='ant-'])) {
+  align-items: center;
+  width: 340px;
+  max-width: 100%;
+  min-height: 32px;
+}
+:root[data-theme] .app-shell .data-table .goods-with-thumbnail > div:where(:not([class*='ant-'])) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+:root[data-theme] .app-shell .data-table .goods-with-thumbnail strong:where(:not([class*='ant-'])) {
+  display: block;
+  flex: 1 1 150px;
+  min-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 20px;
+  -webkit-line-clamp: unset;
+}
+:root[data-theme] .app-shell .data-table .goods-with-thumbnail small:where(:not([class*='ant-'])) {
+  display: block;
+  flex: 0 1 115px;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 20px;
+}
+:root[data-theme] .app-shell .data-table .goods-with-thumbnail small ~ small:where(:not([class*='ant-'])) {
+  display: none;
+}
+:root[data-theme] .app-shell .data-table .goods-thumbnail:where(:not([class*='ant-'])) {
+  width: 32px;
+  height: 32px;
+  flex-basis: 32px;
+}
+:root[data-theme] .app-shell .data-table .thumbnail-button:where(:not([class*='ant-'])) {
+  min-width: 32px !important;
+  min-height: 32px !important;
+  width: 32px;
+  height: 32px;
+  align-self: center;
+}
+:root[data-theme] .app-shell .data-table .product-overview-link:where(:not([class*='ant-'])) {
+  top: 4px;
+}
+.app-shell .data-table .shop-operator-cell:where(:not([class*='ant-'])) {
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+:root[data-theme] .app-shell .data-table tbody tr.resolved-change-row > td:where(:not([class*='ant-'])) {
+  background: color-mix(in srgb, #22a879 10%, var(--panel-bg));
+  border-bottom-color: color-mix(in srgb, #22a879 25%, var(--shell-border));
+}
+:root[data-theme] .app-shell .data-table tbody tr.resolved-change-row > td:first-child:where(:not([class*='ant-'])) {
+  box-shadow: inset 3px 0 #22a879;
+}
+.resolved-change-badge {
+  display: inline-flex;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  color: #087a55;
+  background: #d7f5e8;
+  font-weight: 600;
+  white-space: nowrap;
+}
+[data-theme='dark'] .resolved-change-badge {
+  color: #86e5bd;
+  background: #174b3e;
+}
